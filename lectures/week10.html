@@ -1,0 +1,472 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<title>talk slides</title>
+
+<!-- Loading the init_reveal macro -->
+<!-- Load and configure reveal -->
+  <script src="js-markdown-extra.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+  <!-- General and theme style sheets -->
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+
+  <!-- Loading the mathjax macro -->
+  <!-- Load mathjax -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
+  
+  <!-- Get Font-awesome from cdn -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
+
+     
+  <!-- End of reveal parts -->
+
+<style type="text/css">
+  
+.reveal {
+    font-size: 16px;
+}
+
+.reveal h1 {
+    font-size: 200%;
+}
+
+.reveal h2 {
+    font-size: 150%;
+}
+
+
+.text_cell_render  {
+    text-align: left;
+}
+
+
+a.anchor-link:link {
+  text-decoration: none;
+  visibility: hidden;
+}
+
+.slide {
+}
+
+div.slide{
+   border-style: solid;
+   border-width: 2px;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: center;
+   margin-top: 5px;
+   margin-bottom: 5px;
+   padding: 100px;
+   width: 1000px;
+}
+
+/*******************************
+** highing tpart 
+*******************************/
+.highlight_text {
+  color: blue;
+}
+
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+
+.highlight .hll { background-color: #ffffcc }
+//.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+</style>
+
+
+
+
+</head>
+
+<body>
+
+<div class="reveal">
+<div class="slides">
+<section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="-Python-Path-and-Subprocess-(useful-for-scripting)-"><center> Python Path and Subprocess (useful for scripting) </center><a class="anchor-link" href="#-Python-Path-and-Subprocess-(useful-for-scripting)-">&#182;</a></h1>
+</div>
+</div><div class="fragment" style="width: 100%;float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="We-want-to-be-able-to:">We want to be able to:<a class="anchor-link" href="#We-want-to-be-able-to:">&#182;</a></h2><ul>
+<li>read/write files</li>
+<li>launch executables</li>
+<li>generate input</li>
+<li>parse ouput</li>
+<li>make graphs of publication quality</li>
+<li>post-treatment: curve fit, vector manipulation...</li>
+</ul>
+
+</div>
+</div></div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="-Selected-python-scripting-tools-"><center> Selected python scripting tools </center><a class="anchor-link" href="#-Selected-python-scripting-tools-">&#182;</a></h1>
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Manipulating-filenames">Manipulating filenames<a class="anchor-link" href="#Manipulating-filenames">&#182;</a></h2><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">path</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/tmp/test.plot&#39;</span><span class="p">)</span>
+<span class="n">basename</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;path &#39;</span> <span class="o">+</span> <span class="n">path</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;name &#39;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;basename &#39;</span> <span class="o">+</span> <span class="n">basename</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;ext &#39;</span> <span class="o">+</span> <span class="n">ext</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="How-to-list-all-files-in-a-directory">How to list all files in a directory<a class="anchor-link" href="#How-to-list-all-files-in-a-directory">&#182;</a></h2><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;/tmp&#39;</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div><div class="fragment" style="width: 100%;float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="list-only-files-of-a-given-extension">list only files of a given extension<a class="anchor-link" href="#list-only-files-of-a-given-extension">&#182;</a></h2><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;/tmp&#39;</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">,</span><span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">ext</span> <span class="o">==</span> <span class="s1">&#39;.txt&#39;</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;name &#39;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;ext &#39;</span> <span class="o">+</span> <span class="n">ext</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div></div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="construct-filenames-with-other-files-and-a-different-path">construct filenames with other files and a different path<a class="anchor-link" href="#construct-filenames-with-other-files-and-a-different-path">&#182;</a></h2><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">new_path</span> <span class="o">=</span> <span class="s1">&#39;/newpath&#39;</span>
+
+<span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;/tmp&#39;</span><span class="p">):</span>
+    <span class="n">basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+    <span class="n">new_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">new_path</span><span class="p">,</span> <span class="n">basename</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">new_file</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="execute-other-programs:-Subprocess-module">execute other programs: Subprocess module<a class="anchor-link" href="#execute-other-programs:-Subprocess-module">&#182;</a></h2><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+</pre></div>
+
+</div>
+</div><div class="fragment" style="width: 100%;float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Launching another program is simply done by the <em>call</em> function</p>
+<div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">([</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span> <span class="s1">&#39;-trlh&#39;</span><span class="p">])</span>
+</pre></div>
+<p>The output is sent to screen.</p>
+
+</div>
+</div></div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Saving-output-into-a-file">Saving output into a file<a class="anchor-link" href="#Saving-output-into-a-file">&#182;</a></h2><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="n">outfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;out.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">([</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span> <span class="s1">&#39;-trlh&#39;</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">outfile</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Saving-output-into-a-string">Saving output into a string<a class="anchor-link" href="#Saving-output-into-a-string">&#182;</a></h2><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-trlh&quot;</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="n">out</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">decode</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Exploiting-return-code">Exploiting return code<a class="anchor-link" href="#Exploiting-return-code">&#182;</a></h2><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-trlh&quot;</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="n">out</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">ret</span>
+<span class="k">if</span> <span class="n">ret</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Failed&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;return code: {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div></div>
+</section></section>
+</div>
+</div>
+
+<!-- loads reveal -->
+<script>
+    
+    require(
+    {
+    // it makes sense to wait a little bit when you are loading
+    // reveal from a cdn in a slow connection environment
+    waitSeconds: 1
+    },
+    [
+    "reveal.js/lib/js/head.min.js",
+    "reveal.js/js/reveal.js"
+    ],
+    
+    function(head, Reveal){
+        
+      Reveal.initialize({
+      //width: '1200px',
+      //height: '100%'
+      //  margins: 0.1,
+      controls: true,
+      progress: true,
+      history: true,
+      transition: 'fade',
+      margin: 0.02,
+      progress: true,
+      slideNumber: true,
+      // Optional libraries used to extend on reveal.js plugins
+      dependencies: [
+      { src: 'reveal.js/lib/js/classList.js',
+        condition: function() { return !document.body.classList; }
+      },
+      { src: 'reveal.js/plugin/markdown/marked.js',
+        condition: function() { return !!document.querySelector( '[data-markdown]' ); }
+      },
+      { src: 'reveal.js/plugin/markdown/markdown.js',
+        condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js/plugin/highlight/highlight.js',
+        async: true, callback: function() { hljs.initHighlightingOnLoad(); }
+      },
+      { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+      { src: 'reveal.js/plugin/notes/notes.js',
+        async: true, condition: function() { return !!document.body.classList; }
+      }]});
+    
+      var update = function(event){
+        if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
+          MathJax.Hub.Rerender(Reveal.getCurrentSlide());
+        }
+      };
+    
+      Reveal.addEventListener('slidechanged', update);
+    }
+    );
+    
+    $(document).ready(function(){
+    
+    //$(".cell").css("width","90%");
+    //$(".cell").css("margin","0 auto");
+    //$(".output_area").css("text-align","center");
+    //$(".output_png").css("margin","0 auto");
+    //$("img").css("margin","0 auto");
+    //$(".output_html").css("margin", "0 auto");
+    //$(".output_latex").css("margin", "0 auto");
+    //$(".output_subarea").css("flex", "None");
+    
+    $( "markdown" ).each(function( index ) {
+    $( this ).html(Markdown($( this ).text()));
+    });
+    })
+  </script>
+
+</body>
+
+</html>

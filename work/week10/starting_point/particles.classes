@@ -1,0 +1,130 @@
+class CsvReader(Compute)
+  public CsvReader(std::string const & filename);
+  public void read(System & system);
+  public virtual void compute(System & system);
+  protected std::string filename;
+
+class ComputeKineticEnergy(ComputeEnergy)
+  public ComputeKineticEnergy();
+  public virtual void compute();
+
+class ParticlesFactoryInterface
+  protected ParticlesFactoryInterface();
+  public pure virtual SystemEvolution & createSimulation(Real timestep, std::string const & fname);
+  public pure virtual Particle & createParticle();
+  public static ParticlesFactoryInterface & getInstance();
+  protected std::vector list_particles;
+  protected SystemEvolution * system_evolution;
+  protected ParticlesFactoryInterface * factory;
+
+class Compute
+  public Compute();
+  public pure virtual void compute(System & system);
+
+class ComputeVerletIntegration(Compute)
+  public ComputeVerletIntegration(Real dt);
+  public void setDeltaT(Real dt);
+  public virtual void compute(System & system);
+  private Real dt;
+
+class Particle
+  public Particle();
+  public virtual void initself(std::istream & sstr);
+  public Vector & getVelocity();
+  public virtual void printself(std::ostream & stream) const;
+  public Real & getMass();
+  public Vector & getForce();
+  public Vector & getPosition();
+  protected Vector position;
+  protected Vector force;
+  protected Real mass;
+  protected Vector velocity;
+
+class SystemEvolution
+  public SystemEvolution(System & system);
+  public void evolve();
+  public void setNSteps(UInt nsteps);
+  public void setDumpFreq(UInt nsteps);
+  public System & getSystem();
+  public void addCompute(Compute & compute);
+  protected UInt freq;
+  protected std::vector computes;
+  protected System & system;
+  protected UInt nsteps;
+
+class ComputeContact(Compute)
+  public ComputeContact();
+  public virtual void compute(System & system);
+  public void setPenalty(Real penalty);
+  protected Real penalty;
+
+class System
+  public System();
+  public void removeParticle(UInt particle);
+  public Particle & getParticle(UInt i);
+  public void addParticle(Particle & new_particle);
+  public UInt getListSize();
+  private std::vector list_particles;
+
+class ComputePotentialEnergy(ComputeEnergy)
+  public ComputePotentialEnergy(Compute & cForces);
+  public virtual void compute();
+  protected Compute & cForces;
+
+class Planet(Particle)
+  public Planet();
+  public std::string & getName();
+  private std::string name;
+
+class Vector
+  public Vector();
+  public Real squaredNorm() const;
+  public virtual void initself(std::istream & sstr);
+  public virtual void printself(std::ostream & stream) const;
+  private UInt const dim;
+  private Real[3] values;
+
+class PingPongBallsFactory(ParticlesFactoryInterface)
+  private PingPongBallsFactory();
+  public virtual SystemEvolution & createSimulation(Real timestep, std::string const & fname);
+  public virtual Particle & createParticle();
+  public static ParticlesFactoryInterface & getInstance();
+
+class ComputeGravity(Compute)
+  public ComputeGravity();
+  public void setG(Real G);
+  public virtual void compute(System & system);
+  private Real G;
+
+class PlanetsFactory(ParticlesFactoryInterface)
+  private PlanetsFactory();
+  public virtual SystemEvolution & createSimulation(Real timestep, std::string const & fname);
+  public virtual Particle & createParticle();
+  public static ParticlesFactoryInterface & getInstance();
+
+class CsvWriter(Compute)
+  public CsvWriter(std::string const & filename);
+  public void write(System & system);
+  public virtual void compute(System & system);
+  protected std::string filename;
+
+class PingPongBall(Particle)
+  public PingPongBall();
+  public virtual void printself(std::ostream & stream) const;
+  public virtual void initself(std::istream & sstr);
+  public Real & getContactDissipation();
+  public Real & getRadius();
+  private Real radius;
+  private Real contact_dissipation;
+
+class ComputeEnergy(Compute)
+  public ComputeEnergy();
+  public virtual Real getValue();
+  protected Real value;
+
+class ComputeBoundary(Compute)
+  public ComputeBoundary();
+  public virtual void compute(System & system);
+  protected Vector xmin;
+  protected Vector xmax;
+

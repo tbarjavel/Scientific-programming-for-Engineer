@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 2.6)
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+
+add_executable(ex1 ex1.cc)
+add_executable(ex2 ex2.cc)
+add_executable(ex3 ex3.cc)
+add_executable(memory_first memory_first.cc)
+add_executable(memory_second memory_second.cc)
+add_executable(memory_third memory_third.cc)
+add_executable(ex5 ex5.cc)
+add_executable(ex6 ex6.cc)

@@ -1,0 +1,1083 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<title>talk slides</title>
+
+<!-- Loading the init_reveal macro -->
+<!-- Load and configure reveal -->
+  <script src="js-markdown-extra.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+  <!-- General and theme style sheets -->
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+
+  <!-- Loading the mathjax macro -->
+  <!-- Load mathjax -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
+  
+  <!-- Get Font-awesome from cdn -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
+
+     
+  <!-- End of reveal parts -->
+
+<style type="text/css">
+  
+.reveal {
+    font-size: 16px;
+}
+
+.reveal h1 {
+    font-size: 200%;
+}
+
+.reveal h2 {
+    font-size: 150%;
+}
+
+
+.text_cell_render  {
+    text-align: left;
+}
+
+
+a.anchor-link:link {
+  text-decoration: none;
+  visibility: hidden;
+}
+
+.slide {
+}
+
+div.slide{
+   border-style: solid;
+   border-width: 2px;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: center;
+   margin-top: 5px;
+   margin-bottom: 5px;
+   padding: 100px;
+   width: 1000px;
+}
+
+/*******************************
+** highing tpart 
+*******************************/
+.highlight_text {
+  color: blue;
+}
+
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+
+.highlight .hll { background-color: #ffffcc }
+//.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+</style>
+
+
+
+
+</head>
+
+<body>
+
+<div class="reveal">
+<div class="slides">
+<section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="External-libraries">External libraries<a class="anchor-link" href="#External-libraries">&#182;</a></h1>
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Python">Python<a class="anchor-link" href="#Python">&#182;</a></h2><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">inv</span>
+</pre></div>
+<ul>
+<li>Python interpreter searches modules in the form *.py files, or directories with __init__.py files</li>
+<li>Search through standard paths (/usr/lib/python3.6/)</li>
+<li>Search through path provided in an environment variable PYTHONPATH (edit .bashrc to extend the list)</li>
+<li>can see such a list with:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Producing-executables">Producing executables<a class="anchor-link" href="#Producing-executables">&#182;</a></h2><ul>
+<li>Compilation: produces .o files</li>
+<li>Using external libraries first need to include interfaces</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;gsl/gsl_sf_bessel.h&gt;</span><span class="cp"></span>
+</pre></div>
+<ul>
+<li>At compilation, g++ searches through standard paths (such as /usr/bin/include) </li>
+<li>Extending the list can be done with the option '-I':<div class="highlight"><pre><span></span>&gt; g++ -c -Imynew_path file.cc
+</pre></div>
+</li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Link edition (Linking): produces executables/libraries from .o files and libraries with '-l' option</li>
+<li>At compilation, g++ searches through standard paths (such as /usr/lib) </li>
+<li>Extend the list can be done with the option '-L' <div class="highlight"><pre><span></span>&gt; g++ file1.o file2.o -L/some_path/ -lmylib -o <span class="nb">exec</span>
+</pre></div>
+</li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>What is this error about ?</li>
+</ul>
+
+</div>
+</div><div class="full" style="width: 100%; float: left">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&gt; g++ tmp.cc
+
+/usr/bin/ld: /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o: in function `_start&#39;:
+(.text+0x20): undefined reference to `main&#39;
+collect2: error: ld returned 1 exit status
+
+</pre>
+</div>
+</div>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>What is this error about ?</li>
+</ul>
+
+</div>
+</div><div class="full" style="width: 100%; float: left">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_area">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<style>
+            .hll { background-color: #ffffcc }
+.c { color: #408080; font-style: italic } /* Comment */
+.err { border: 1px solid #FF0000 } /* Error */
+.k { color: #008000; font-weight: bold } /* Keyword */
+.o { color: #666666 } /* Operator */
+.ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.cp { color: #BC7A00 } /* Comment.Preproc */
+.cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.c1 { color: #408080; font-style: italic } /* Comment.Single */
+.cs { color: #408080; font-style: italic } /* Comment.Special */
+.gd { color: #A00000 } /* Generic.Deleted */
+.ge { font-style: italic } /* Generic.Emph */
+.gr { color: #FF0000 } /* Generic.Error */
+.gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.gi { color: #00A000 } /* Generic.Inserted */
+.go { color: #888888 } /* Generic.Output */
+.gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.gs { font-weight: bold } /* Generic.Strong */
+.gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.gt { color: #0044DD } /* Generic.Traceback */
+.kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.kp { color: #008000 } /* Keyword.Pseudo */
+.kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.kt { color: #B00040 } /* Keyword.Type */
+.m { color: #666666 } /* Literal.Number */
+.s { color: #BA2121 } /* Literal.String */
+.na { color: #7D9029 } /* Name.Attribute */
+.nb { color: #008000 } /* Name.Builtin */
+.nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.no { color: #880000 } /* Name.Constant */
+.nd { color: #AA22FF } /* Name.Decorator */
+.ni { color: #999999; font-weight: bold } /* Name.Entity */
+.ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.nf { color: #0000FF } /* Name.Function */
+.nl { color: #A0A000 } /* Name.Label */
+.nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.nt { color: #008000; font-weight: bold } /* Name.Tag */
+.nv { color: #19177C } /* Name.Variable */
+.ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.w { color: #bbbbbb } /* Text.Whitespace */
+.mb { color: #666666 } /* Literal.Number.Bin */
+.mf { color: #666666 } /* Literal.Number.Float */
+.mh { color: #666666 } /* Literal.Number.Hex */
+.mi { color: #666666 } /* Literal.Number.Integer */
+.mo { color: #666666 } /* Literal.Number.Oct */
+.sa { color: #BA2121 } /* Literal.String.Affix */
+.sb { color: #BA2121 } /* Literal.String.Backtick */
+.sc { color: #BA2121 } /* Literal.String.Char */
+.dl { color: #BA2121 } /* Literal.String.Delimiter */
+.sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.s2 { color: #BA2121 } /* Literal.String.Double */
+.se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.sh { color: #BA2121 } /* Literal.String.Heredoc */
+.si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.sx { color: #008000 } /* Literal.String.Other */
+.sr { color: #BB6688 } /* Literal.String.Regex */
+.s1 { color: #BA2121 } /* Literal.String.Single */
+.ss { color: #19177C } /* Literal.String.Symbol */
+.bp { color: #008000 } /* Name.Builtin.Pseudo */
+.fm { color: #0000FF } /* Name.Function.Magic */
+.vc { color: #19177C } /* Name.Variable.Class */
+.vg { color: #19177C } /* Name.Variable.Global */
+.vi { color: #19177C } /* Name.Variable.Instance */
+.vm { color: #19177C } /* Name.Variable.Magic */
+.il { color: #666666 } /* Literal.Number.Integer.Long */
+            </style>
+            <div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;gsl/gsl_sf_bessel.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">;</span>
+  <span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="n">gsl_sf_bessel_J0</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;J0(&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;) = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">y</span><span class="p">;</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+            
+</div>
+
+</div>
+
+</div>
+</div><div class="full" style="width: 100%; float: left">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&gt; g++ tmp.cc
+
+/usr/bin/ld: /tmp/ccN3AVEO.o: in function `main&#39;:
+tmp.cc:(.text+0x1b): undefined reference to `gsl_sf_bessel_J0&#39;
+collect2: error: ld returned 1 exit status
+
+</pre>
+</div>
+</div>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Need to specify the "library" where the files reside</li>
+</ul>
+
+</div>
+</div><div class="full" style="width: 100%; float: left">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&gt; g++ -lgsl tmp.cc
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Why does this show no error at link ?</li>
+</ul>
+
+</div>
+</div><div class="full" style="width: 100%; float: left">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_area">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<style>
+            .hll { background-color: #ffffcc }
+.c { color: #408080; font-style: italic } /* Comment */
+.err { border: 1px solid #FF0000 } /* Error */
+.k { color: #008000; font-weight: bold } /* Keyword */
+.o { color: #666666 } /* Operator */
+.ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.cp { color: #BC7A00 } /* Comment.Preproc */
+.cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.c1 { color: #408080; font-style: italic } /* Comment.Single */
+.cs { color: #408080; font-style: italic } /* Comment.Special */
+.gd { color: #A00000 } /* Generic.Deleted */
+.ge { font-style: italic } /* Generic.Emph */
+.gr { color: #FF0000 } /* Generic.Error */
+.gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.gi { color: #00A000 } /* Generic.Inserted */
+.go { color: #888888 } /* Generic.Output */
+.gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.gs { font-weight: bold } /* Generic.Strong */
+.gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.gt { color: #0044DD } /* Generic.Traceback */
+.kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.kp { color: #008000 } /* Keyword.Pseudo */
+.kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.kt { color: #B00040 } /* Keyword.Type */
+.m { color: #666666 } /* Literal.Number */
+.s { color: #BA2121 } /* Literal.String */
+.na { color: #7D9029 } /* Name.Attribute */
+.nb { color: #008000 } /* Name.Builtin */
+.nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.no { color: #880000 } /* Name.Constant */
+.nd { color: #AA22FF } /* Name.Decorator */
+.ni { color: #999999; font-weight: bold } /* Name.Entity */
+.ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.nf { color: #0000FF } /* Name.Function */
+.nl { color: #A0A000 } /* Name.Label */
+.nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.nt { color: #008000; font-weight: bold } /* Name.Tag */
+.nv { color: #19177C } /* Name.Variable */
+.ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.w { color: #bbbbbb } /* Text.Whitespace */
+.mb { color: #666666 } /* Literal.Number.Bin */
+.mf { color: #666666 } /* Literal.Number.Float */
+.mh { color: #666666 } /* Literal.Number.Hex */
+.mi { color: #666666 } /* Literal.Number.Integer */
+.mo { color: #666666 } /* Literal.Number.Oct */
+.sa { color: #BA2121 } /* Literal.String.Affix */
+.sb { color: #BA2121 } /* Literal.String.Backtick */
+.sc { color: #BA2121 } /* Literal.String.Char */
+.dl { color: #BA2121 } /* Literal.String.Delimiter */
+.sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.s2 { color: #BA2121 } /* Literal.String.Double */
+.se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.sh { color: #BA2121 } /* Literal.String.Heredoc */
+.si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.sx { color: #008000 } /* Literal.String.Other */
+.sr { color: #BB6688 } /* Literal.String.Regex */
+.s1 { color: #BA2121 } /* Literal.String.Single */
+.ss { color: #19177C } /* Literal.String.Symbol */
+.bp { color: #008000 } /* Name.Builtin.Pseudo */
+.fm { color: #0000FF } /* Name.Function.Magic */
+.vc { color: #19177C } /* Name.Variable.Class */
+.vg { color: #19177C } /* Name.Variable.Global */
+.vi { color: #19177C } /* Name.Variable.Instance */
+.vm { color: #19177C } /* Name.Variable.Magic */
+.il { color: #666666 } /* Literal.Number.Integer.Long */
+            </style>
+            <div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kt">int</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.</span><span class="p">));</span> <span class="p">}</span>
+</pre></div>
+
+            
+</div>
+
+</div>
+
+</div>
+</div><div class="full" style="width: 100%; float: left">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&gt; g++ tmp.cc
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Static-libraries">Static libraries<a class="anchor-link" href="#Static-libraries">&#182;</a></h2><ul>
+<li>A <a href="https://en.wikipedia.org/wiki/Static_library">Static libraries</a> is a set of routines, external functions and variables which are resolved by linker/binder to produce a stand-alone executable. </li>
+<li>Generally with extension "libXXXX.a" (e.g. /usr/lib/x86_64-linux-gnu/libm.a). </li>
+<li>The final executable statically linked includes all the libraries (big executable file)</li>
+<li>carry dependencies but not portable</li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Dynamic-libraries">Dynamic libraries<a class="anchor-link" href="#Dynamic-libraries">&#182;</a></h2><ul>
+<li><a href="https://en.wikipedia.org/wiki/Library_(computing">Dynamic/Shared libraries</a>#Shared_libraries) are loaded on demand by executables. </li>
+<li>Shared libraries can be statically linked or dynamically loaded.</li>
+<li>libXXX.so (or libXXX.dll on windows). e.g. /usr/lib/x86_64-linux-gnu/libm.so</li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_area">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<style>
+            .hll { background-color: #ffffcc }
+.c { color: #408080; font-style: italic } /* Comment */
+.err { border: 1px solid #FF0000 } /* Error */
+.k { color: #008000; font-weight: bold } /* Keyword */
+.o { color: #666666 } /* Operator */
+.ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.cp { color: #BC7A00 } /* Comment.Preproc */
+.cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.c1 { color: #408080; font-style: italic } /* Comment.Single */
+.cs { color: #408080; font-style: italic } /* Comment.Special */
+.gd { color: #A00000 } /* Generic.Deleted */
+.ge { font-style: italic } /* Generic.Emph */
+.gr { color: #FF0000 } /* Generic.Error */
+.gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.gi { color: #00A000 } /* Generic.Inserted */
+.go { color: #888888 } /* Generic.Output */
+.gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.gs { font-weight: bold } /* Generic.Strong */
+.gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.gt { color: #0044DD } /* Generic.Traceback */
+.kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.kp { color: #008000 } /* Keyword.Pseudo */
+.kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.kt { color: #B00040 } /* Keyword.Type */
+.m { color: #666666 } /* Literal.Number */
+.s { color: #BA2121 } /* Literal.String */
+.na { color: #7D9029 } /* Name.Attribute */
+.nb { color: #008000 } /* Name.Builtin */
+.nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.no { color: #880000 } /* Name.Constant */
+.nd { color: #AA22FF } /* Name.Decorator */
+.ni { color: #999999; font-weight: bold } /* Name.Entity */
+.ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.nf { color: #0000FF } /* Name.Function */
+.nl { color: #A0A000 } /* Name.Label */
+.nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.nt { color: #008000; font-weight: bold } /* Name.Tag */
+.nv { color: #19177C } /* Name.Variable */
+.ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.w { color: #bbbbbb } /* Text.Whitespace */
+.mb { color: #666666 } /* Literal.Number.Bin */
+.mf { color: #666666 } /* Literal.Number.Float */
+.mh { color: #666666 } /* Literal.Number.Hex */
+.mi { color: #666666 } /* Literal.Number.Integer */
+.mo { color: #666666 } /* Literal.Number.Oct */
+.sa { color: #BA2121 } /* Literal.String.Affix */
+.sb { color: #BA2121 } /* Literal.String.Backtick */
+.sc { color: #BA2121 } /* Literal.String.Char */
+.dl { color: #BA2121 } /* Literal.String.Delimiter */
+.sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.s2 { color: #BA2121 } /* Literal.String.Double */
+.se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.sh { color: #BA2121 } /* Literal.String.Heredoc */
+.si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.sx { color: #008000 } /* Literal.String.Other */
+.sr { color: #BB6688 } /* Literal.String.Regex */
+.s1 { color: #BA2121 } /* Literal.String.Single */
+.ss { color: #19177C } /* Literal.String.Symbol */
+.bp { color: #008000 } /* Name.Builtin.Pseudo */
+.fm { color: #0000FF } /* Name.Function.Magic */
+.vc { color: #19177C } /* Name.Variable.Class */
+.vg { color: #19177C } /* Name.Variable.Global */
+.vi { color: #19177C } /* Name.Variable.Instance */
+.vm { color: #19177C } /* Name.Variable.Magic */
+.il { color: #666666 } /* Literal.Number.Integer.Long */
+            </style>
+            <div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;gsl/gsl_sf_bessel.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">;</span>
+  <span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="n">gsl_sf_bessel_J0</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;J0(&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;) = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">y</span><span class="p">;</span>
+  <span class="k">return</span> <span class="kt">int</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+
+            
+</div>
+
+</div>
+
+</div>
+</div><div class="full" style="width: 100%; float: left">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&gt; ldd exe
+
+	linux-vdso.so.1 (0x00007ffe0acfa000)
+	libgsl.so.23 =&gt; /lib/x86_64-linux-gnu/libgsl.so.23 (0x00007f434ca37000)
+	libstdc++.so.6 =&gt; /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f434c8b4000)
+	libm.so.6 =&gt; /lib/x86_64-linux-gnu/libm.so.6 (0x00007f434c720000)
+	libgcc_s.so.1 =&gt; /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f434c706000)
+	libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f434c549000)
+	libgslcblas.so.0 =&gt; /lib/x86_64-linux-gnu/libgslcblas.so.0 (0x00007f434c508000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f434ccf1000)
+
+</pre>
+</div>
+</div>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Scrutinizing-a-library">Scrutinizing a library<a class="anchor-link" href="#Scrutinizing-a-library">&#182;</a></h2><ul>
+<li>What to do if you have a link error <strong>Undefined symbol</strong></li>
+<li>For an <strong>internal</strong> symbol: check missing <em>inline</em>, check missing implementation</li>
+<li>For an <strong>external</strong> symbol: search the library file !</li>
+</ul>
+<p>Listing the <strong>Symbols</strong> from a library:</p>
+
+</div>
+</div><div class="full" style="width: 100%; float: left">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&gt; nm -DAC /lib/x86_64-linux-gnu/libm.so.6
+</pre>
+</div>
+</div>
+
+</div>
+</div><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>option "-A": precede the symbol with library name</li>
+<li>option "-D": for dynamic libraries (not needed if .o or .a files)</li>
+<li>option "-C": demangle C++ symbols</li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&gt; nm -DAC /lib/x86_64-linux-gnu/libm.so.6
+</pre>
+</div>
+</div>
+
+</div>
+</div><div class="full" style="width: 100%; float: left">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>/lib/x86_64-linux-gnu/libm.so.6:000000000000e910 W acos
+/lib/x86_64-linux-gnu/libm.so.6:0000000000011f40 W acosf
+/lib/x86_64-linux-gnu/libm.so.6:0000000000074b30 W acosf128
+/lib/x86_64-linux-gnu/libm.so.6:0000000000056b30 T __acosf128_finite
+/lib/x86_64-linux-gnu/libm.so.6:0000000000011f40 W acosf32
+...
+</pre>
+</div>
+</div>
+
+</div>
+</div><div class="fragment" style="width: 100%;float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>U: undefined symbol $\Rightarrow$ used in the library not defined</li>
+<li>T: text symbol $\Rightarrow$ used in the library and defined in the library</li>
+<li>W: weak symbol $\Rightarrow$ used in the library, defined but can be overloaded with a T symbol</li>
+</ul>
+
+</div>
+</div></div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Finding-a-symbol-from-a-list-of-files">Finding a symbol from a list of files<a class="anchor-link" href="#Finding-a-symbol-from-a-list-of-files">&#182;</a></h2>
+</div>
+</div><div class="full" style="width: 100%; float: left">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&gt; find /usr/lib/x86_64-linux-gnu/ -name &#39;*.so&#39; -exec nm -DAC &#39;{}&#39; &#39;;&#39; | grep &#39;gsl_sf_bessel_J0&#39;
+</pre>
+</div>
+</div>
+
+</div>
+</div><div class="full" style="width: 100%; float: left">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>/usr/lib/x86_64-linux-gnu/libgsl.so:0000000000164250 T gsl_sf_bessel_J0
+/usr/lib/x86_64-linux-gnu/libgsl.so:0000000000163dd0 T gsl_sf_bessel_J0_e
+
+</pre>
+</div>
+</div>
+
+</div>
+</div></div>
+</section></section><section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Advanced-CMake">Advanced <a href="https://cmake.org/cmake/help/v3.13/">CMake</a><a class="anchor-link" href="#Advanced-CMake">&#182;</a></h1>
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Creating-an-executable">Creating an executable<a class="anchor-link" href="#Creating-an-executable">&#182;</a></h2><div class="highlight"><pre><span></span><span class="nb">cmake_minimum_required</span> <span class="p">(</span><span class="s">VERSION</span> <span class="s">3.1</span><span class="p">)</span>
+<span class="nb">project</span> <span class="p">(</span><span class="s">Wonderland</span><span class="p">)</span>
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">exe</span> <span class="s">file1.cc</span> <span class="s">file2.cc</span><span class="p">)</span>
+</pre></div>
+<ul>
+<li>compiles <em>file1.o</em> and <em>file2.o</em> and link into an executable <em>exe</em></li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Variables">Variables<a class="anchor-link" href="#Variables">&#182;</a></h2><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s">VAR_NAME</span> <span class="s2">&quot;my variable&quot;</span><span class="p">)</span>
+<span class="c"># example: setting version number </span>
+<span class="nb">set</span><span class="p">(</span><span class="s">Wonderland_VERSION_MAJOR</span> <span class="s">1</span><span class="p">)</span>
+<span class="nb">set</span><span class="p">(</span><span class="s">Wonderland_VERSION_MINOR</span> <span class="s">0</span><span class="p">)</span><span class="err">)</span>
+<span class="c"># variable appearing in the ccmake menu</span>
+<span class="nb">set</span><span class="p">(</span><span class="s">CACHED_VARIABLE</span> <span class="s">CACHE</span> <span class="s">STRING</span> <span class="s2">&quot;a variable appearing in cmake menu&quot;</span><span class="p">)</span>
+</pre></div>
+<ul>
+<li>types are BOOL, FILEPATH, PATH, STRING</li>
+<li>using variables</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nb">message</span><span class="p">(</span><span class="s2">&quot;VAR_NAME = ${VAR_NAME}&quot;</span><span class="p">)</span>
+</pre></div>
+<ul>
+<li><a href="https://cmake.org/cmake/help/v3.13/manual/cmake-variables.7.html">special variables</a></li>
+</ul>
+
+<pre><code>example: ${PROJECT_BINARY_DIR} ${PROJECT_SOURCE_DIR}</code></pre>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Adding-paths-to-the-include-search-list">Adding paths to the include search list<a class="anchor-link" href="#Adding-paths-to-the-include-search-list">&#182;</a></h2><div class="highlight"><pre><span></span><span class="nb">include_directories</span><span class="p">(</span><span class="s">&#39;/my_preferred_path&#39;</span><span class="p">)</span>
+<span class="nb">include_directories</span><span class="p">(</span><span class="s2">&quot;${PROJECT_BINARY_DIR}&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Adding-an-external-library">Adding an external library<a class="anchor-link" href="#Adding-an-external-library">&#182;</a></h2><div class="highlight"><pre><span></span><span class="nb">add_executable</span><span class="p">(</span><span class="s">exe</span> <span class="s">file1.cc</span> <span class="s">file2.cc</span><span class="p">)</span>
+<span class="nb">target_link_libraries</span> <span class="p">(</span><span class="s">exe</span> <span class="s">gsl</span><span class="p">)</span>
+<span class="c"># or with full path</span>
+<span class="nb">target_link_libraries</span> <span class="p">(</span><span class="s">exe</span> <span class="s">/usr/lib/x86_64-linux-gnu/libgsl.so</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Creating-a-library">Creating a library<a class="anchor-link" href="#Creating-a-library">&#182;</a></h2><div class="highlight"><pre><span></span><span class="nb">add_library</span><span class="p">(</span><span class="s">mylib</span> <span class="s">file1.cc</span> <span class="s">file2.cc</span><span class="p">)</span>
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">exe</span> <span class="s">main.cc</span><span class="p">)</span>
+<span class="nb">target_link_libraries</span> <span class="p">(</span><span class="s">exe</span> <span class="s">gsl</span> <span class="s">mylib</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Making-options">Making options<a class="anchor-link" href="#Making-options">&#182;</a></h2><div class="highlight"><pre><span></span><span class="c"># should we use our own math functions?</span>
+<span class="nb">option</span> <span class="p">(</span><span class="s">USE_GSL</span> <span class="s2">&quot;Use gsl library&quot;</span> <span class="s">ON</span><span class="p">)</span> 
+
+<span class="nb">if</span> <span class="p">(</span><span class="s">USE_GSL</span><span class="p">)</span>
+    <span class="nb">target_link_libraries</span> <span class="p">(</span><span class="s">exe</span> <span class="s">gsl</span> <span class="s">mylib</span><span class="p">)</span>
+<span class="nb">endif</span> <span class="p">(</span><span class="s">USE_GSL</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Finding-libraries">Finding libraries<a class="anchor-link" href="#Finding-libraries">&#182;</a></h2><ul>
+<li>For the library files</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s">GSL_LIBRARY_PATH</span> <span class="s">CACHE</span> <span class="s">PATH</span> <span class="s2">&quot;library where to search libgsl&quot;</span><span class="p">)</span>
+<span class="nb">find_library</span> <span class="p">(</span><span class="s">GSL_LIBRARY</span> <span class="s">libgsl</span> <span class="o">${</span><span class="nv">GSL_LIBRARY_PATH</span><span class="o">}</span> <span class="s">/usr/lib</span><span class="p">)</span>
+</pre></div>
+<ul>
+<li>For the include files</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s">GSL_INCLUDE_PATH</span> <span class="s">CACHE</span> <span class="s">PATH</span> <span class="s2">&quot;path where to search gsl include files&quot;</span><span class="p">)</span>
+<span class="nb">find_path</span><span class="p">(</span><span class="s">GSL_INCLUDE</span> <span class="s">gsl_root.h</span> <span class="o">${</span><span class="nv">GSL_INCLUDE_PATH</span><span class="o">}</span> <span class="s">/usr/include/</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div></div>
+</section></section><section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Discrete-Fourier-Transform"><a href="https://en.wikipedia.org/wiki/Discrete_Fourier_transform">Discrete Fourier Transform</a><a class="anchor-link" href="#Discrete-Fourier-Transform">&#182;</a></h1><ul>
+<li>Taking a signal (vector of points) $(x_i)$, the Discrete Fourier Transform is gien as the signal:</li>
+</ul>
+$$[DFT(x)]_k = \hat{x}_k = \sum_{i=0}^{N-1} x_i \cdot e^{-\frac{2\pi i kn}{N}}$$<ul>
+<li>It forms an approximation of Fourier series complex coefficients</li>
+<li>The inverse DFT is given with</li>
+</ul>
+$$[DFT^{-1}(\hat{x})]_i = x_i = \frac{1}{N}\sum_{i=0}^{N-1} \hat{x}_k \cdot e^{\frac{2\pi kin}{N}}$$
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Fast-Fourier-Transform"><a href="https://en.wikipedia.org/wiki/Fast_Fourier_transform">Fast Fourier Transform</a><a class="anchor-link" href="#Fast-Fourier-Transform">&#182;</a></h1><ul>
+<li>Hierarchical algorithm ($N \log N$)</li>
+<li><a href="http://www.fftw.org/">FFTW</a> library: mainstream library implementating the FFT transform (Fastest Fourier Transform in the West)</li>
+<li><a href="http://www.fftw.org/fftw3_doc/">Documentation</a></li>
+<li>example<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;fftw3.h&gt;</span><span class="cp"></span>
+<span class="p">{</span>
+  <span class="n">fftw_complex</span> <span class="o">*</span><span class="n">in</span><span class="p">,</span> <span class="o">*</span><span class="n">out</span><span class="p">;</span>
+  <span class="n">fftw_plan</span> <span class="n">p</span><span class="p">;</span>
+  <span class="p">...</span>
+  <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">fftw_complex</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+  <span class="n">out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">fftw_complex</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+  <span class="n">p</span> <span class="o">=</span> <span class="n">fftw_plan_dft_1d</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">in</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">FFTW_FORWARD</span><span class="p">,</span> <span class="n">FFTW_ESTIMATE</span><span class="p">);</span>
+  <span class="p">...</span>
+  <span class="n">fftw_execute</span><span class="p">(</span><span class="n">p</span><span class="p">);</span> <span class="cm">/* repeat as needed */</span>
+  <span class="p">...</span>
+  <span class="n">fftw_destroy_plan</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+  <span class="k">delete</span> <span class="p">[]</span> <span class="n">in</span><span class="p">;</span>
+  <span class="k">delete</span> <span class="p">[]</span> <span class="n">out</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</li>
+</ul>
+
+</div>
+</div></div>
+</section></section>
+</div>
+</div>
+
+<!-- loads reveal -->
+<script>
+    
+    require(
+    {
+    // it makes sense to wait a little bit when you are loading
+    // reveal from a cdn in a slow connection environment
+    waitSeconds: 1
+    },
+    [
+    "reveal.js/lib/js/head.min.js",
+    "reveal.js/js/reveal.js"
+    ],
+    
+    function(head, Reveal){
+        
+      Reveal.initialize({
+      //width: '1200px',
+      //height: '100%'
+      //  margins: 0.1,
+      controls: true,
+      progress: true,
+      history: true,
+      transition: 'fade',
+      margin: 0.02,
+      progress: true,
+      slideNumber: true,
+      // Optional libraries used to extend on reveal.js plugins
+      dependencies: [
+      { src: 'reveal.js/lib/js/classList.js',
+        condition: function() { return !document.body.classList; }
+      },
+      { src: 'reveal.js/plugin/markdown/marked.js',
+        condition: function() { return !!document.querySelector( '[data-markdown]' ); }
+      },
+      { src: 'reveal.js/plugin/markdown/markdown.js',
+        condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js/plugin/highlight/highlight.js',
+        async: true, callback: function() { hljs.initHighlightingOnLoad(); }
+      },
+      { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+      { src: 'reveal.js/plugin/notes/notes.js',
+        async: true, condition: function() { return !!document.body.classList; }
+      }]});
+    
+      var update = function(event){
+        if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
+          MathJax.Hub.Rerender(Reveal.getCurrentSlide());
+        }
+      };
+    
+      Reveal.addEventListener('slidechanged', update);
+    }
+    );
+    
+    $(document).ready(function(){
+    
+    //$(".cell").css("width","90%");
+    //$(".cell").css("margin","0 auto");
+    //$(".output_area").css("text-align","center");
+    //$(".output_png").css("margin","0 auto");
+    //$("img").css("margin","0 auto");
+    //$(".output_html").css("margin", "0 auto");
+    //$(".output_latex").css("margin", "0 auto");
+    //$(".output_subarea").css("flex", "None");
+    
+    $( "markdown" ).each(function( index ) {
+    $( this ).html(Markdown($( this ).text()));
+    });
+    })
+  </script>
+
+</body>
+
+</html>

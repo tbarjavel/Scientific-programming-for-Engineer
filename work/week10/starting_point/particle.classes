@@ -1,0 +1,99 @@
+class Real(double)
+class UInt(unsigned int)
+
+class Vector
+public Vector(UInt dim);
+public ~Vector();
+public Real & operator[](UInt i);
+private Real * values; 
+private UInt dim;
+public Real & operator[](UInt i);
+public const Real & operator [](UInt dim) const;
+public Vector operator -(const Vector & q) const;
+public Vector & operator -=(const Vector & q);
+public Vector operator +(const Vector & q) const;
+public Vector & operator +=(const Vector & q);
+public Vector operator *(const Vector & q) const;
+public Vector operator /(const Vector & q) const;
+public Vector operator *(const Real & s) const;
+public Vector operator /(const Real & s) const;
+public Vector & operator =(const Real & s);
+public Real squaredNorm() const;
+
+
+class Particle
+public Particle();
+public ~Particle();
+public Real & getMass();
+public Vector & getPosition();
+public Vector & getVelocity();
+public Vector & getForce();
+
+protected Real mass;
+protected Vector position;
+protected Vector velocity;
+protected Vector force;
+
+class PingPongBall(Particle)
+public PingPongBall();
+public ~PingPongBall();
+public Real & getRadius();
+public Real & getContactDissipation();
+private Real radius;
+private Real contact_dissipation;
+
+class Planet(Particle)
+public Planet();
+public ~Planet();
+public std::string & getName();
+private std::string name;
+
+class Compute 
+public Compute();
+public ~Compute();
+public void compute(System & system)=0;
+
+class ComputeContact(Compute)
+public ComputeContact();
+public ~ComputeContact();
+public void compute(System & system);
+
+class ComputeGravity(Compute)
+public ComputeGravity();
+public ~ComputeGravity();
+public void compute(System & system);
+
+class ComputeBoundary(Compute)
+public ComputeBoundary();
+public ComputeBoundary(const Vector & xmin, const Vector & xmax);
+public ~ComputeBoundary();
+public void compute(System & system);
+public void setRange((const Vector & xmin, const Vector & xmax);
+protected Vector xmin
+protected Vector xmax
+
+
+class ComputeVerletIntegration(Compute)
+public ComputeVerletIntegration(Real dt);
+public ~ComputeVerletIntegration();
+public void compute(System & system);
+public setDeltaT(Real dt);
+private Real dt;
+
+class System
+public System()
+public ~System()
+public UInt getListSize();
+public Particle & getParticle(UInt i);
+public addParticle(Particle & new_particle);
+public removeParticle(UInt particle);
+private ListParticles list_particles;
+
+class SystemEvolution
+public SystemEvolution(System & system);
+public void evolve();
+public void addcompute(Compute & compute);
+protected std::vector<Compute *> computes;
+protected System & system;
+
+class ListParticles(std::vector<Particle*>)

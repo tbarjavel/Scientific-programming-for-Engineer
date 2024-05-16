@@ -1,0 +1,1177 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<title>talk slides</title>
+
+<!-- Loading the init_reveal macro -->
+<!-- Load and configure reveal -->
+  <script src="js-markdown-extra.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+  <!-- General and theme style sheets -->
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+
+  <!-- Loading the mathjax macro -->
+  <!-- Load mathjax -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
+  
+  <!-- Get Font-awesome from cdn -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
+
+     
+  <!-- End of reveal parts -->
+
+<style type="text/css">
+  
+.reveal {
+    font-size: 16px;
+}
+
+.reveal h1 {
+    font-size: 200%;
+}
+
+.reveal h2 {
+    font-size: 150%;
+}
+
+
+.text_cell_render  {
+    text-align: left;
+}
+
+
+a.anchor-link:link {
+  text-decoration: none;
+  visibility: hidden;
+}
+
+.slide {
+}
+
+div.slide{
+   border-style: solid;
+   border-width: 2px;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: center;
+   margin-top: 5px;
+   margin-bottom: 5px;
+   padding: 100px;
+   width: 1000px;
+}
+
+/*******************************
+** highing tpart 
+*******************************/
+.highlight_text {
+  color: blue;
+}
+
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+
+.highlight .hll { background-color: #ffffcc }
+//.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+</style>
+
+
+
+
+</head>
+
+<body>
+
+<div class="reveal">
+<div class="slides">
+<section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1><center> Scientific Programming <br> for Engineers (SP4E) </center></h1>
+<center><img width="75%" src="figures/phd-comics-sp4e.png"></center>
+</div>
+</div></div>
+</section></section><section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="-Welcome-"><center> Welcome </center><a class="anchor-link" href="#-Welcome-">&#182;</a></h1><ul>
+<li>About the class<ul>
+<li>The goal is to provide some useful knowledge (tool box) to the job of a PhD student who wants to perform a numerical work</li>
+<li>Uncover the details of computers and numerical simulations: bring power (analogy blue/red pill of Matrix movie)</li>
+<li>The class will be a bit particular (uncovering knowledge), thus it is personal and needs participation.</li>
+<li>Students have to build their own understanding/experience on the various tasks required.</li>
+<li>Evaluation will be made by evaluating homeworks.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Difficulties-in-making-scientific-software">Difficulties in making scientific software<a class="anchor-link" href="#Difficulties-in-making-scientific-software">&#182;</a></h2>
+</div>
+</div><div class="fragment" style="width: 100%;float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Real numbers (and all rounding errors)<ul>
+<li>Overflow and catastrophic cancellation</li>
+<li><a href="http://ta.twi.tudelft.nl/users/vuik/wi211/disasters.html">Famous disaster about patriot missiles</a></li>
+</ul>
+</li>
+<li>Units<ul>
+<li>Conversion of units to be able to plug modules together</li>
+<li>Non SI unit system needs explicit conversion between quantities</li>
+<li><a href="https://en.wikipedia.org/wiki/Mars_Climate_Orbiter">Mars Orbiter disaster</a></li>
+</ul>
+</li>
+<li><p>Rapid changes</p>
+<ul>
+<li>Need of quick and easy implementation/insertion of new features</li>
+<li>Need non regression tests</li>
+</ul>
+</li>
+<li><p>Large problems</p>
+<ul>
+<li>Need to manipulate large number of DOFs to increase accuracy</li>
+<li>Need for collaborative tools to make cutting edge applications</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div></div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="--&quot;Computer-scientists-are/should-be-LAZY-(but-smartly)&quot;--"><em> <center> "Computer scientists are/should be LAZY (but smartly)" </center> </em><a class="anchor-link" href="#--&quot;Computer-scientists-are/should-be-LAZY-(but-smartly)&quot;--">&#182;</a></h4>
+</div>
+</div><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<center><img src="figures/automation.png"> <br></center>
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<center><img src="figures/is_it_worth_the_time.png"></center>
+</div>
+</div></div>
+</section></section><section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="-Cycles-for-engineering-production-of-scientific-software-"><center> Cycles for engineering production of scientific software </center><a class="anchor-link" href="#-Cycles-for-engineering-production-of-scientific-software-">&#182;</a></h2>
+</div>
+</div><div class="fragment" style="width: 100%;float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>Scientific question</li>
+<li>Analysis and formulation of the problem</li>
+<li>Conception: algorithmic decision</li>
+<li>Implementation</li>
+<li>Deployment of the code</li>
+<li>Analysis/post-treatment of the results</li>
+</ol>
+
+</div>
+</div></div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="-Scientific-question-"><center> Scientific question </center><a class="anchor-link" href="#-Scientific-question-">&#182;</a></h3>
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="-Analysis-and-formulation-of-the-problem-"><center> Analysis and formulation of the problem </center><a class="anchor-link" href="#-Analysis-and-formulation-of-the-problem-">&#182;</a></h3><ul>
+<li>Math formulation: PDE, optimization, statistical, ...</li>
+<li>Define the input and output of the model</li>
+<li>Separate the post-treatment</li>
+<li>If there are some analytical solutions you need to be aware</li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="-Conception:-algorithmic-decision-"><center> Conception: algorithmic decision </center><a class="anchor-link" href="#-Conception:-algorithmic-decision-">&#182;</a></h3><ul>
+<li>Make a chart diagram of the algorithm: separate the subparts</li>
+<li>Choose/identify how to solve the subparts</li>
+<li>Choose the appropriate data structures</li>
+<li>For new algorithms, evaluate the complexity, make an effort of generalization</li>
+<li>If global complexity unaffordable with the desired grain (number of DOFs) consider changing the model (back to 2:formulation )</li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="-Implementation-"><center> Implementation </center><a class="anchor-link" href="#-Implementation-">&#182;</a></h3><ul>
+<li>Identify existing software for the entire project and for the subparts</li>
+<li>Decide a programming language</li>
+<li>Decide a coding convention (question of style)</li>
+<li>Decide where the code is hosted (for backups and revisions)</li>
+<li>Decide a source documentation format</li>
+<li>Program the thing</li>
+<li>Setup of tests for each necessary sub-part (during programming)</li>
+<li>Debug and check for memory leaks</li>
+<li>The programming feasibility could here lead to change algorithms or model (back to 2:formulation or 3:conception)</li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="-Deployment-of-the-code-"><center> Deployment of the code </center><a class="anchor-link" href="#-Deployment-of-the-code-">&#182;</a></h3><ul>
+<li>Identify the target machine</li>
+<li>Fix compilation issues (multi-system, portability, architecture CPU vs. GPU)</li>
+<li>Parametric study management (scripting the launch)</li>
+<li>Computing shared/cluster of resources: queue system management</li>
+<li>Compilation issue, version issues, could lead to implementation change (back to 4:implementation)</li>
+<li>Specific hardware could invalidate the algorithmic decision (back to 3:conception)</li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="-Analysis/post-treatment-of-the-results-"><center> Analysis/post-treatment of the results </center><a class="anchor-link" href="#-Analysis/post-treatment-of-the-results-">&#182;</a></h3><ul>
+<li>Sorting/treating the output</li>
+<li>Compute digested measures for the brute output (this should be faster than the computation itself otherwise back to 2:formulation)</li>
+<li>Produce graphs (for papers and presentations)</li>
+<li>3D vizualization</li>
+<li>Validate numerical results, stability, coherence, comparison to experiment</li>
+<li>If the validation fail get back to 5,4,3 or 2 is possible</li>
+</ul>
+
+</div>
+</div></div>
+</section></section><section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="-The-method-for-this-class-"><center> The method for this class </center><a class="anchor-link" href="#-The-method-for-this-class-">&#182;</a></h1><ul>
+<li>Computer place: Your laptop<ul>
+<li>Linux as main OS, Dualboot, or on a VirtualBox(might get slow)</li>
+<li>Python framework</li>
+<li>C++ framework</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div><div class="fragment" style="width: 100%;float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Open source philosophy $\Rightarrow$ access to source<ul>
+<li>Possibility to check the content of the code</li>
+<li>Possibility to modify the code for your own purpose</li>
+<li>Power of the community</li>
+<li>Business model based on knowledge rather than license</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div></div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="-The-method-for-this-class-"><center> The method for this class </center><a class="anchor-link" href="#-The-method-for-this-class-">&#182;</a></h1><ul>
+<li>Why C++ and in python<ul>
+<li>Object oriented is a way to organize the programs for re-usability</li>
+<li>C++ allows objects and efficiency</li>
+<li>Python allows interactivity and quick testing</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div><div class="fragment" style="width: 100%;float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>On the repositories<ul>
+<li>Program = bug</li>
+<li>Since programs can be complex we need a tool to tag source revisions</li>
+<li>Collaborative tool to software development</li>
+<li>cvs, svn, git. There is a git at EPFL that we will use.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div></div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="-The-method-for-this-class-"><center> The method for this class </center><a class="anchor-link" href="#-The-method-for-this-class-">&#182;</a></h1><ul>
+<li>On post-treatment programs<ul>
+<li>Python is perfect for manipulating files, for parsing outputs, for making graphs</li>
+<li>Many program exists for visualization. An opensource one: Paraview</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="-Class-plan-description-"><center> Class plan description </center><a class="anchor-link" href="#-Class-plan-description-">&#182;</a></h1>
+</div>
+</div><div class="full" style="width: 100%; float: left">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_area">
+
+<div class="output_markdown rendered_html output_subarea output_execute_result">
+<ul>
+<li>Tuesday 18-th Sep: Introduction, GIT, python hello world</li>
+<li>Tuesday 25-th Sep: C++ hello world, floating point numbers, pi computation</li>
+<li>Tuesday 02-th Oct: C++ STL, Coding convention (C++11)</li>
+<li>Tuesday 09-th Oct: Paraview, Numpy&amp;Scipy, Matplotlib, Exercise: conjugate gradient (<strong>Homework</strong>)</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+</div><div class="fragment" style="width: 100%;float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_area">
+
+<div class="output_markdown rendered_html output_subarea output_execute_result">
+<ul>
+<li>Tuesday 16-th Oct: Object oriented with python</li>
+<li>Tuesday 23-th Oct: Object oriented with C++ (<strong>Homework</strong>)</li>
+<li>Tuesday 30-th Oct: Interactive session to design Particle's code, Design patterns, Implementation of simple kepler orbit</li>
+<li>Tuesday 06-th Nov: Continuing adimentional kepler's orbit</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+</div></div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="-Class-plan-description-"><center> Class plan description </center><a class="anchor-link" href="#-Class-plan-description-">&#182;</a></h1>
+</div>
+</div><div class="full" style="width: 100%; float: left">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_area">
+
+<div class="output_markdown rendered_html output_subarea output_execute_result">
+<ul>
+<li>Tuesday 13-th Nov: Google test. Exercise Produce a test suite for particle's code</li>
+<li>Tuesday 20-th Nov: Code optimization and Templates + pingpong ball</li>
+<li>Tuesday 27-th Nov: Homework about trajectory optimization</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+</div><div class="fragment" style="width: 100%;float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_area">
+
+<div class="output_markdown rendered_html output_subarea output_execute_result">
+<ul>
+<li>Tuesday 04-th Dec: Using external libraries. Exercise with FFTW (porting to C++) (<strong>Homework</strong>)</li>
+<li>Tuesday 11-th Dec: Template library: Eigen. Exercise: mass-spring equilibrium</li>
+<li>Tuesday 18-th Dec: PyBind+cppimport. Exercise porting the particle's code to python (<strong>Homework</strong>)</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+</div></div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="-Books-as-support-for-the-course-"><center> Books as support for the course </center><a class="anchor-link" href="#-Books-as-support-for-the-course-">&#182;</a></h1><ul>
+<li><a href="http://en.wikibooks.org/wiki/C++_Programming">C++ wikibook</a></li>
+<li><a href="http://en.wikibooks.org/wiki/Python_Programming">python wikibook</a></li>
+<li><a href="http://www.amazon.fr/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612">Design Patterns. Elements of Reusable Object-Oriented Software</a></li>
+<li><a href="http://www.amazon.com/Object-Oriented-Analysis-Design-Applications-Edition/dp/020189551X">Object-oriented analysis and design with applications</a></li>
+<li><a href="http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882/ref\%3Dsr_1_1_ha?s\%3Dbooks&amp;ie\%3DUTF8&amp;qid\%3D1410775932&amp;sr\%3D1-1&amp;keywords\%3Dclean\%2Bcode">Clean code</a></li>
+<li><a href="http://www.amazon.com/Parallel-Scientific-Computing-MPI-Implementation/dp/0521520800">Parallel scientific computing in c++ and mpi: a seamless approach</a></li>
+</ul>
+
+</div>
+</div></div>
+</section></section><section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="-The--GIT-"><center> The <i> GIT</i> </center><a class="anchor-link" href="#-The--GIT-">&#182;</a></h2><center><img src="figures/git-xkcd.png"></center>
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="What-would-you-demand-to-a-tool-that-will-hold-your-program-sources-?">What would you demand to a tool that will hold your program sources ?<a class="anchor-link" href="#What-would-you-demand-to-a-tool-that-will-hold-your-program-sources-?">&#182;</a></h2>
+</div>
+</div><div class="fragment" style="width: 100%;float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Manage history (evolution in time)</li>
+<li>Rewind time</li>
+<li>Transport/Backup through network</li>
+<li>Team/Concurrent working</li>
+</ul>
+<p>This is the standard of most <strong>Version control systems</strong> such as <strong>GIT</strong></p>
+
+</div>
+</div></div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1><center> Revision manager: <br> The GIT  & c4science </center></h1>
+<ul>
+<li>Git is a free distributed version control system (DVCS), used for source code management (SCM)</li>
+<li>Git operates on a decentralized architecture, so every git working directory has the complete history</li>
+<li>Git was initiallydesigned and created by Linus Torvalds for Linux kernel development</li>
+<li>EPFL has a GIT repository service (<a href="http://c4science.ch/">http://c4science.ch/</a>)</li>
+</ul>
+<p><a href="http://en.wikipedia.org/wiki/Version_control_system">wikipedia: revision control system</a><br>
+<a href="http://en.wikipedia.org/wiki/Git">wikipedia: git</a></p>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="GIT---Clone-repositories">GIT - Clone repositories<a class="anchor-link" href="#GIT---Clone-repositories">&#182;</a></h3>
+<pre><code>git clone ssh://git@c4science.ch/source/sp4e.git mydir</code></pre>
+<center><img src="figures/git-cloning.png"></center>
+</div>
+</div><div class="fragment" style="width: 100%;float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>The <em>working copy</em> is the state (can be modified) of a selected branch (definition comes later)</li>
+<li>To know the status of the working copy:
+<pre><code>git status</code></pre>
+</li>
+<li>See the log
+<pre><code>git log</code></pre>
+</li>
+</ul>
+
+</div>
+</div></div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="GIT---Commit-your-modifications">GIT - Commit your modifications<a class="anchor-link" href="#GIT---Commit-your-modifications">&#182;</a></h3>
+<pre><code>git commit -m "interesting modification" file.cc</code></pre>
+<center><img src="figures/git-commit.png"></center>
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="GIT---Branches">GIT - Branches<a class="anchor-link" href="#GIT---Branches">&#182;</a></h3><p><center><img width="45%" src="./figures/branches.jpg"></center></p>
+<ul>
+<li>All modern VCSs have a mechanism for branches</li>
+<li>Branching means you diverge from the main line of development and continue without perturbing the code</li>
+<li>Branches can evolve independently</li>
+<li>The main branch in GIT is usually called <em>master</em></li>
+<li><a href="https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell">GIT doc on branches</a></li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>See/create branches:
+<pre><code>git branch</code></pre>
+</li>
+<li>Change the working copy to another branch
+<pre><code>git checkout stable-branch</code></pre>
+</li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="GIT---Push-your-modifications">GIT - Push your modifications<a class="anchor-link" href="#GIT---Push-your-modifications">&#182;</a></h3>
+<pre><code>git push origin master</code></pre>
+<center><img src="figures/git-push.png"></center><ul>
+<li>This operation sends the current branch and merge it into the remote branch</li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="GIT---Pull-modifications">GIT - Pull modifications<a class="anchor-link" href="#GIT---Pull-modifications">&#182;</a></h3>
+<pre><code>git pull origin master</code></pre>
+<center><img src="figures/git-pull.png"></center><ul>
+<li>This operation actually fetch the remote branch and merge into current branch</li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="GIT---remotes">GIT - remotes<a class="anchor-link" href="#GIT---remotes">&#182;</a></h3><ul>
+<li>You can pull/push to more than a single remote</li>
+<li>list the declared remotes:
+<pre><code>git remote -v</code></pre>
+</li>
+<li>add/remove remotes
+<pre><code>git remote add/remove</code></pre>
+</li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="GIT---commands">GIT - commands<a class="anchor-link" href="#GIT---commands">&#182;</a></h3><div class="highlight"><pre><span></span>git log
+</pre></div>
+<div class="highlight"><pre><span></span>git status
+</pre></div>
+<div class="highlight"><pre><span></span>git checkout
+</pre></div>
+<div class="highlight"><pre><span></span>git add file.cc
+</pre></div>
+<div class="highlight"><pre><span></span>git rm file.cc
+</pre></div>
+<div class="highlight"><pre><span></span>git mv file.cc
+</pre></div>
+<div class="highlight"><pre><span></span>git commit -m <span class="s2">&quot;nice message&quot;</span> file.cc
+</pre></div>
+<div class="highlight"><pre><span></span>git push remote_name branch_name
+git push origin master
+</pre></div>
+<div class="highlight"><pre><span></span>git diff
+git diff revision_hash
+</pre></div>
+<div class="highlight"><pre><span></span>git <span class="nb">help</span> whatever_command
+</pre></div>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="GIT---creation/import">GIT - creation/import<a class="anchor-link" href="#GIT---creation/import">&#182;</a></h3><ul>
+<li>Create a repository: git init</li>
+<li>Adding new files: git add file1 file2 file3</li>
+<li>Commit the status: git commit</li>
+<li>Add the remote: git remote add origin URI</li>
+</ul>
+
+</div>
+</div><div class="fragment" style="width: 100%;float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id=".gitignore">.gitignore<a class="anchor-link" href="#.gitignore">&#182;</a></h3><ul>
+<li>File to place file patterns to be ignored</li>
+<li>example: *~ *.o *.pyc</li>
+</ul>
+
+</div>
+</div></div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2><center> Implicit rule: do not commit something <br> <text style="color:red"> that is not compiling </text> <br> to a shared/public repository </center></h2>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="GIT---resources">GIT - resources<a class="anchor-link" href="#GIT---resources">&#182;</a></h3><ul>
+<li>Cheat Sheet: <a href="http://ndpsoftware.com/git-cheatsheet.html">http://ndpsoftware.com/git-cheatsheet.html</a></li>
+<li>Simple guide: <a href="http://rogerdudler.github.io/git-guide/">http://rogerdudler.github.io/git-guide/</a></li>
+<li>Nice tutorial: <a href="http://learngitbranching.js.org/">http://learngitbranching.js.org/</a></li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="c4science.ch">c4science.ch<a class="anchor-link" href="#c4science.ch">&#182;</a></h3><p><strong>What is c4science ?</strong></p>
+<p>C4 Science is a co-creation platform, curation and code sharing. This platform includes:</p>
+<ul>
+<li>Version management system</li>
+<li>Common authentication to all Swiss universities to local + external collaborators</li>
+<li>Social dimension (wikis, bug tracking, ...)</li>
+<li>Code test system (continuous integration)</li>
+<li>Swiss alternative to github</li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="c4science.ch">c4science.ch<a class="anchor-link" href="#c4science.ch">&#182;</a></h3><p><strong>Connect to c4science</strong></p>
+<p>The recommended way to connect to the c4science server (and actually any distant linux machine) is through the SSH protocol:</p>
+<center><img src="figures/ssh.png"></center><ul>
+<li>You need a pair of keys: one public and one private</li>
+<li>They are stored in the directory <em>.ssh</em> in your home directory</li>
+<li>The public can be distributed, the private should stay <strong>secret</strong></li>
+<li>A good habit is to generate one key-pair per client and never transport the private key</li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Interactive-session-on-manipulating-git">Interactive session on manipulating git<a class="anchor-link" href="#Interactive-session-on-manipulating-git">&#182;</a></h3><ul>
+<li>installing git</li>
+<li>creating a repository on <em>c4science</em></li>
+<li>cloning it to private laptop</li>
+<li>fix permissions</li>
+<li>manage conflicts</li>
+</ul>
+
+</div>
+</div></div>
+</section></section><section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1><center>Python language <br> concepts and syntax </center></h1>
+
+</div>
+</div><div class="fragment" style="width: 100%;float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<center> Please install Python/Anaconda on you laptop </center>
+</div>
+</div></div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>comments</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1">#my super comment</span>
+</pre></div>
+<ul>
+<li>command print</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+<ul>
+<li>type</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">10.</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+<ul>
+<li>Converting string to integer or float</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;1.2&quot;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a_int</span><span class="p">)</span>
+<span class="n">a_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a_float</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>list<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</li>
+<li>maps/dictionaries<div class="highlight"><pre><span></span><span class="n">planet</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">planet</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;mars&quot;</span>  
+<span class="n">planet</span><span class="p">[</span><span class="s2">&quot;radius&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.2</span>
+<span class="n">planet</span><span class="p">[</span><span class="s2">&quot;mass&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.4</span>
+<span class="k">print</span><span class="p">(</span><span class="n">planet</span><span class="p">)</span>
+</pre></div>
+</li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>blocks in python identified by ':' and with the indentation<div class="highlight"><pre><span></span><span class="n">block_start</span><span class="p">:</span>
+ <span class="c1">#start of the block</span>
+ <span class="n">instruction1</span>
+ <span class="n">instruction2</span>
+ <span class="n">instruction3</span>
+ <span class="c1">#end of the block</span>
+</pre></div>
+</li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>if conditions<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;a != 0&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+ <span class="k">print</span><span class="p">(</span><span class="s2">&quot;a == 0&quot;</span><span class="p">)</span>
+</pre></div>
+</li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>for loops (beware the indentation)</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">mylist</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>defining function<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span><span class="p">):</span>
+ <span class="o">...</span> 
+ <span class="n">some_code</span>
+ <span class="o">...</span>
+</pre></div>
+</li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>opening files for writing</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;my_super_filename.csv&quot;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;#X Y Z VX VY VZ FX FY FZ mass radius name</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+<ul>
+<li>opening a file and read line by line</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;my_super_filename.csv&quot;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">entries</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">entries</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>using other modules</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># request to use another module</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+</pre></div>
+<ul>
+<li>splitting your program in several files</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1">#my_module.py</span>
+
+<span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">arg</span><span class="o">+</span><span class="mi">1</span>
+</pre></div>
+<p>I can call this function from another file with</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">my_module</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">my_module</span><span class="o">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</pre></div>
+<ul>
+<li>The file must be <em>accessible</em></li>
+<li>To control what is accessible, the <em>environment variable</em> <strong>PYTHONPATH</strong> is checked</li>
+</ul>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>launching a python script from the terminal</li>
+</ul>
+
+<pre><code>python3 exe.py arg1 arg2 arg3</code></pre>
+<ul>
+<li>how to get the arguments passed to the program ?</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="c1"># the arguments are stored in the list sys.argv</span>
+<span class="c1"># for instance you can print it with</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div></div>
+</section><section>
+<div class="slide" style="float: left"><div class="full" style="width: 100%; float: left">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Interactive-session-on-the-Hello-world">Interactive session on the Hello world<a class="anchor-link" href="#Interactive-session-on-the-Hello-world">&#182;</a></h3><ul>
+<li>Use GIT to access the first exercise</li>
+<li>How to split a source file into modules</li>
+<li>Manipulating program arguments (argv)</li>
+<li>Series calculation</li>
+<li>Debugger PDB</li>
+</ul>
+
+</div>
+</div></div>
+</section></section>
+</div>
+</div>
+
+<!-- loads reveal -->
+<script>
+    
+    require(
+    {
+    // it makes sense to wait a little bit when you are loading
+    // reveal from a cdn in a slow connection environment
+    waitSeconds: 1
+    },
+    [
+    "reveal.js/lib/js/head.min.js",
+    "reveal.js/js/reveal.js"
+    ],
+    
+    function(head, Reveal){
+        
+      Reveal.initialize({
+      //width: '1200px',
+      //height: '100%'
+      //  margins: 0.1,
+      controls: true,
+      progress: true,
+      history: true,
+      transition: 'fade',
+      margin: 0.02,
+      progress: true,
+      slideNumber: true,
+      // Optional libraries used to extend on reveal.js plugins
+      dependencies: [
+      { src: 'reveal.js/lib/js/classList.js',
+        condition: function() { return !document.body.classList; }
+      },
+      { src: 'reveal.js/plugin/markdown/marked.js',
+        condition: function() { return !!document.querySelector( '[data-markdown]' ); }
+      },
+      { src: 'reveal.js/plugin/markdown/markdown.js',
+        condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js/plugin/highlight/highlight.js',
+        async: true, callback: function() { hljs.initHighlightingOnLoad(); }
+      },
+      { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+      { src: 'reveal.js/plugin/notes/notes.js',
+        async: true, condition: function() { return !!document.body.classList; }
+      }]});
+    
+      var update = function(event){
+        if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
+          MathJax.Hub.Rerender(Reveal.getCurrentSlide());
+        }
+      };
+    
+      Reveal.addEventListener('slidechanged', update);
+    }
+    );
+    
+    $(document).ready(function(){
+    
+    //$(".cell").css("width","90%");
+    //$(".cell").css("margin","0 auto");
+    //$(".output_area").css("text-align","center");
+    //$(".output_png").css("margin","0 auto");
+    //$("img").css("margin","0 auto");
+    //$(".output_html").css("margin", "0 auto");
+    //$(".output_latex").css("margin", "0 auto");
+    //$(".output_subarea").css("flex", "None");
+    
+    $( "markdown" ).each(function( index ) {
+    $( this ).html(Markdown($( this ).text()));
+    });
+    })
+  </script>
+
+</body>
+
+</html>
